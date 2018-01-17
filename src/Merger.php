@@ -66,6 +66,21 @@ class Merger
     }
 
     /**
+     * Add PDF from a stream
+     *
+     * Note that your PDFs are merged in the order that you add them
+     *
+     * @param  resource $stream Stream to add
+     * @param  string $name Name of the stream
+     * @param  Pages $pages Pages to add from file
+     * @return void
+     */
+    public function addStream($stream, $name, Pages $pages = null)
+    {
+        $this->sources[] = new StreamSource($stream, $name, $pages);
+    }
+
+    /**
      * Add PDF from file
      *
      * @deprecated Since version 3.1
